@@ -1,7 +1,7 @@
 # Deployed on haroku 
 URL  : https://peaceful-shelf-69026.herokuapp.com/
 
-# ApexChartAngularIntegrationTest
+# Apex Chart integration with Angular 13
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
