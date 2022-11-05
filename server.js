@@ -1,13 +1,23 @@
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
-var bodyParser = require('body-parser');
+"use strict";
+const express = require("express");
+const compression = require("compression");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}) );
+const _port = 4200;
+const _app_folder = 'dist/apex-chart-angular-integration-test';
 
-app.use( express.static(__dirname + '/src' ) );
+const app = express();
+app.use(compression());
 
-var listener = server.listen(process.env.PORT || 5000, function(){
-    console.log('Listening on port ' + listener.address().port); //Listening on port 5000
+
+// ---- SERVE STATIC FILES ---- //
+app.server.get('*.*', express.static(_app_folder, {maxAge: '1y'}));
+
+// ---- SERVE APLICATION PATHS ---- //
+app.all('*', function (req, res) {
+    res.status(200).sendFile(`/`, {root: _app_folder});
+});
+
+// ---- START UP THE NODE SERVER  ----
+app.listen(_port, function () {
+    console.log("Node Express server for " + app.name + " listening on http://localhost:" + _port);
 });
