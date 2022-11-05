@@ -1,14 +1,16 @@
+//Install express server
 const express = require('express');
-const app = express();
-const port = 3000;
 const path = require('path');
 
-app.use(express.static('dist/apex-chart-angular-integration-test/'));
+const app = express();
 
-app.get('*', function(req,res) {
-    res.sendFile(path.resolve('dist/apex-chart-angular-integration-test/index.html'));
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/apex-chart-angular-integration-test'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/apex-chart-angular-integration-test/index.html'));
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
