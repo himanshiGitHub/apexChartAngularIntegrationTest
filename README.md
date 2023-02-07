@@ -26,4 +26,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Push notification
+## PWA in action locally
+
+To see a PWA in action, follow the below steps.
+
+Run `ng build --prod` command. It will create files under dist/angular-pwa folder.
+Navigate to that folder using cd dist/angular-pwa
+Run http-server command (`npm i -g http-server`)

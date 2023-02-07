@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "start-pwa": "ng build && http-server -p 8080 -c-1 dist/apex-chart-angular-integration-test",
     "heroku-postbuild": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build && npm install -g http-server-spa"
   },
   "private": true,
@@ -19,6 +20,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
+    "@angular/service-worker": "~13.1.0",
     "apexcharts": "^3.33.0",
     "body-parser": "^1.13.3",
     "core-js": "^3.20.3",
